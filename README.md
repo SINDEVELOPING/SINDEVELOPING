@@ -78,7 +78,7 @@
 <tr>
 <td width="50%" valign="top">
 
-**[My Linuz](https://github.com/SINDEVELOPING/mylinuz)**<br/>
+**[MyLinux](https://github.com/SINDEVELOPING/mylinux)**<br/>
 <sub>Свой дистрибутив на базе Arch: live-образ, системные настройки, собственная тема Plasma.</sub><br/>
 <sub><code>archiso</code> <code>Bash</code> <code>PowerShell</code></sub>
 
