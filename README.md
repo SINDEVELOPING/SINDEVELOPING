@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/shin-dark.gif" width="100%" />
+<img src="assets/lily-field.gif" width="100%" />
 
 <br/>
 <br/>
@@ -30,43 +30,47 @@
 <td width="25%" valign="top">
 
 <sub><b>Языки</b></sub><br/><br/>
-<img src="https://skillicons.dev/icons?i=ts" height="22" align="center" />&nbsp;&nbsp;TypeScript<br/>
-<img src="https://skillicons.dev/icons?i=js" height="22" align="center" />&nbsp;&nbsp;JavaScript<br/>
-<img src="https://skillicons.dev/icons?i=py" height="22" align="center" />&nbsp;&nbsp;Python<br/>
-<img src="https://skillicons.dev/icons?i=java" height="22" align="center" />&nbsp;&nbsp;Java<br/>
-<img src="https://skillicons.dev/icons?i=cpp" height="22" align="center" />&nbsp;&nbsp;C++<br/>
-<img src="https://skillicons.dev/icons?i=bash" height="22" align="center" />&nbsp;&nbsp;Bash<br/>
+<img src="https://cdn.simpleicons.org/typescript/white" height="18" align="center" />&nbsp;&nbsp;TypeScript<br/>
+<img src="https://cdn.simpleicons.org/javascript/white" height="18" align="center" />&nbsp;&nbsp;JavaScript<br/>
+<img src="https://cdn.simpleicons.org/python/white" height="18" align="center" />&nbsp;&nbsp;Python<br/>
+<img src="https://cdn.simpleicons.org/openjdk/white" height="18" align="center" />&nbsp;&nbsp;Java<br/>
+<img src="https://cdn.simpleicons.org/cplusplus/white" height="18" align="center" />&nbsp;&nbsp;C++<br/>
+<img src="https://cdn.simpleicons.org/gnubash/white" height="18" align="center" />&nbsp;&nbsp;Bash<br/>
 
 </td>
 <td width="25%" valign="top">
 
 <sub><b>Фреймворки</b></sub><br/><br/>
-<img src="https://skillicons.dev/icons?i=nodejs" height="22" align="center" />&nbsp;&nbsp;Node.js<br/>
-<img src="https://skillicons.dev/icons?i=discordjs" height="22" align="center" />&nbsp;&nbsp;discord.js<br/>
-<img src="https://skillicons.dev/icons?i=react" height="22" align="center" />&nbsp;&nbsp;React<br/>
-<img src="https://skillicons.dev/icons?i=express" height="22" align="center" />&nbsp;&nbsp;Express<br/>
+<img src="https://cdn.simpleicons.org/nodedotjs/white" height="18" align="center" />&nbsp;&nbsp;Node.js<br/>
+<img src="https://cdn.simpleicons.org/discorddotjs/white" height="18" align="center" />&nbsp;&nbsp;discord.js<br/>
+<img src="https://cdn.simpleicons.org/react/white" height="18" align="center" />&nbsp;&nbsp;React<br/>
+<img src="https://cdn.simpleicons.org/express/white" height="18" align="center" />&nbsp;&nbsp;Express<br/>
 
 </td>
 <td width="25%" valign="top">
 
 <sub><b>Базы данных</b></sub><br/><br/>
-<img src="https://skillicons.dev/icons?i=mysql" height="22" align="center" />&nbsp;&nbsp;MySQL<br/>
-<img src="https://skillicons.dev/icons?i=postgres" height="22" align="center" />&nbsp;&nbsp;PostgreSQL<br/>
-<img src="https://skillicons.dev/icons?i=mongodb" height="22" align="center" />&nbsp;&nbsp;MongoDB<br/>
+<img src="https://cdn.simpleicons.org/mysql/white" height="18" align="center" />&nbsp;&nbsp;MySQL<br/>
+<img src="https://cdn.simpleicons.org/postgresql/white" height="18" align="center" />&nbsp;&nbsp;Postgres<br/>
+<img src="https://cdn.simpleicons.org/mongodb/white" height="18" align="center" />&nbsp;&nbsp;MongoDB<br/>
 
 </td>
 <td width="25%" valign="top">
 
 <sub><b>Инфраструктура</b></sub><br/><br/>
-<img src="https://skillicons.dev/icons?i=linux" height="22" align="center" />&nbsp;&nbsp;Linux<br/>
-<img src="https://skillicons.dev/icons?i=arch" height="22" align="center" />&nbsp;&nbsp;Arch Linux<br/>
-<img src="https://skillicons.dev/icons?i=git" height="22" align="center" />&nbsp;&nbsp;Git<br/>
+<img src="https://cdn.simpleicons.org/linux/white" height="18" align="center" />&nbsp;&nbsp;Linux<br/>
+<img src="https://cdn.simpleicons.org/archlinux/white" height="18" align="center" />&nbsp;&nbsp;Arch<br/>
+<img src="https://cdn.simpleicons.org/git/white" height="18" align="center" />&nbsp;&nbsp;Git<br/>
 
 </td>
 </tr>
 </table>
 
 <br/>
+
+<div align="center">
+<img src="assets/spearhead.gif" width="100%" />
+</div>
 
 ### Проекты
 
@@ -141,8 +145,8 @@
 
 <div align="center">
 
-<img src="assets/shin.gif" width="49%" />
-<img src="assets/lena-station.gif" width="49%" />
+<img src="assets/salute.gif" width="49%" />
+<img src="assets/lena-city.gif" width="49%" />
 
 <br/>
 <br/>
