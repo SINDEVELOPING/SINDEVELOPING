@@ -14,12 +14,9 @@
 
 </div>
 
-Веб-разработчик и дизайнер. Делаю сайты от макета до продакшена:
-сначала интерфейс в Figma, потом вёрстка, фронтенд на React и бэкенд под него.
-Люблю, когда страница не просто работает, а приятно выглядит и быстро открывается.
+Веб-разработчик и дизайнер. Делаю сайты от макета до продакшена: сначала проектирую интерфейс в Figma, затем верстаю, пишу фронтенд на React и бэкенд под него. Люблю, когда страница не просто работает, а выглядит приятно и быстро загружается.
 
-Discord-боты, Linux и Minecraft-плагины тоже умею, но это скорее навыки,
-которые пригодились в собственных проектах.
+Также умею делать Discord-ботов, работать в Linux и писать плагины для Minecraft — эти навыки пригодились в собственных проектах.
 
 <br/>
 
@@ -27,51 +24,36 @@ Discord-боты, Linux и Minecraft-плагины тоже умею, но эт
 
 <table>
 <tr>
-<td width="25%" valign="top">
-
-<sub><b>Фронтенд</b></sub><br/><br/>
-<img src="https://cdn.simpleicons.org/html5/white" height="18" align="center" />&nbsp;&nbsp;HTML<br/>
-<img src="https://cdn.simpleicons.org/css/white" height="18" align="center" />&nbsp;&nbsp;CSS<br/>
-<img src="https://cdn.simpleicons.org/javascript/white" height="18" align="center" />&nbsp;&nbsp;JavaScript<br/>
-<img src="https://cdn.simpleicons.org/typescript/white" height="18" align="center" />&nbsp;&nbsp;TypeScript<br/>
-<img src="https://cdn.simpleicons.org/react/white" height="18" align="center" />&nbsp;&nbsp;React<br/>
-<img src="https://cdn.simpleicons.org/vite/white" height="18" align="center" />&nbsp;&nbsp;Vite<br/>
-
-</td>
-<td width="25%" valign="top">
-
-<sub><b>Дизайн</b></sub><br/><br/>
-<img src="https://cdn.simpleicons.org/figma/white" height="18" align="center" />&nbsp;&nbsp;Figma<br/>
-
-</td>
-<td width="25%" valign="top">
-
-<sub><b>Бэкенд</b></sub><br/><br/>
-<img src="https://cdn.simpleicons.org/nodedotjs/white" height="18" align="center" />&nbsp;&nbsp;Node.js<br/>
-<img src="https://cdn.simpleicons.org/express/white" height="18" align="center" />&nbsp;&nbsp;Express<br/>
-<img src="https://cdn.simpleicons.org/python/white" height="18" align="center" />&nbsp;&nbsp;Python<br/>
-<img src="https://cdn.simpleicons.org/openjdk/white" height="18" align="center" />&nbsp;&nbsp;Java<br/>
-<img src="https://cdn.simpleicons.org/mysql/white" height="18" align="center" />&nbsp;&nbsp;MySQL<br/>
-<img src="https://cdn.simpleicons.org/postgresql/white" height="18" align="center" />&nbsp;&nbsp;Postgres<br/>
-<img src="https://cdn.simpleicons.org/mongodb/white" height="18" align="center" />&nbsp;&nbsp;MongoDB<br/>
-
-</td>
-<td width="25%" valign="top">
-
-<sub><b>Ещё умею</b></sub><br/><br/>
-<img src="https://cdn.simpleicons.org/discorddotjs/white" height="18" align="center" />&nbsp;&nbsp;Discord-боты<br/>
-<img src="https://cdn.simpleicons.org/linux/white" height="18" align="center" />&nbsp;&nbsp;Linux<br/>
-<img src="https://cdn.simpleicons.org/archlinux/white" height="18" align="center" />&nbsp;&nbsp;Arch<br/>
-<img src="https://cdn.simpleicons.org/git/white" height="18" align="center" />&nbsp;&nbsp;Git<br/>
-
-</td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/html5/white" height="32" /><br/><sub>HTML</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/css/white" height="32" /><br/><sub>CSS</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/javascript/white" height="32" /><br/><sub>JavaScript</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/typescript/white" height="32" /><br/><sub>TypeScript</sub><br/><br/></td>
+</tr>
+<tr>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/react/white" height="32" /><br/><sub>React</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/vite/white" height="32" /><br/><sub>Vite</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/figma/white" height="32" /><br/><sub>Figma</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/nodedotjs/white" height="32" /><br/><sub>Node.js</sub><br/><br/></td>
+</tr>
+<tr>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/express/white" height="32" /><br/><sub>Express</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/python/white" height="32" /><br/><sub>Python</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/openjdk/white" height="32" /><br/><sub>Java</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/mysql/white" height="32" /><br/><sub>MySQL</sub><br/><br/></td>
+</tr>
+<tr>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/postgresql/white" height="32" /><br/><sub>PostgreSQL</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/mongodb/white" height="32" /><br/><sub>MongoDB</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/linux/white" height="32" /><br/><sub>Linux</sub><br/><br/></td>
+<td align="center" width="25%"><br/><img src="https://cdn.simpleicons.org/git/white" height="32" /><br/><sub>Git</sub><br/><br/></td>
 </tr>
 </table>
 
 <br/>
 
 <div align="center">
-<img src="assets/spearhead.gif" width="100%" />
+<img src="assets/wistoria.gif" width="49%" />
+<img src="assets/yuta.gif" width="49%" />
 </div>
 
 ### Проекты
@@ -131,12 +113,6 @@ Discord-боты, Linux и Minecraft-плагины тоже умею, но эт
 
 <div align="center">
 
-<img src="assets/salute.gif" width="49%" />
-<img src="assets/lena-city.gif" width="49%" />
-
-<br/>
-<br/>
-
-<sub>86 &nbsp;—&nbsp; Eighty-Six</sub>
+<img src="assets/absolute-cinema.gif" width="60%" />
 
 </div>
