@@ -285,15 +285,27 @@ def lut():
                     break
     return out
 
-def duotone(src, dst, maxw):
+def crop_aspect(f, aspect):
+    w, h = f.size
+    if w / h > aspect:
+        nw = round(h * aspect)
+        return f.crop(((w - nw) // 2, 0, (w - nw) // 2 + nw, h))
+    nh = round(w / aspect)
+    return f.crop((0, (h - nh) // 2, w, (h - nh) // 2 + nh))
+
+def duotone(src, dst, size, box=None, step=1):
+    """size: (w, h) output; box: crop before fitting; step: keep every Nth frame."""
     im = Image.open(src)
     grays, durs = [], []
-    for fr in ImageSequence.Iterator(im):
+    for i, fr in enumerate(ImageSequence.Iterator(im)):
+        if i % step:
+            continue
         f = fr.convert("RGB")
-        if f.width > maxw:
-            f = f.resize((maxw, round(f.height * maxw / f.width)), Image.LANCZOS)
+        if box:
+            f = f.crop(box)
+        f = crop_aspect(f, size[0] / size[1]).resize(size, Image.LANCZOS)
         grays.append(f.convert("L"))
-        durs.append(fr.info.get("duration", 80))
+        durs.append(fr.info.get("duration", 80) * step)
     # one global levels stretch for the whole gif (per-frame would flicker)
     hist = [sum(g.histogram()[v] for g in grays) for v in range(256)]
     total, acc, lo, hi = sum(hist), 0, 0, 255
@@ -311,13 +323,19 @@ def duotone(src, dst, maxw):
     print(f"  {os.path.basename(dst)}: {len(frames)} frames, {os.path.getsize(dst) // 1024} KB")
 
 if __name__ == "__main__":
-    header(); about(); stack(); footer(); featured(); more_card()
-    section("about", "ОБО МНЕ", "01 / 03")
-    section("projects", "ПРОЕКТЫ", "02 / 03")
-    section("stack", "СТЕК", "03 / 03")
+    header(); stack(); featured(); more_card()
+    section("projects", "ПРОЕКТЫ", "01 / 02")
+    section("stack", "СТЕК", "02 / 02")
     for i, p in enumerate(PROJECTS, 1):
         card(i, *p)
     if "--gifs" in sys.argv:
         src = os.path.join(HERE, "gifs")
-        for name, mw in (("lily-field", 840), ("wistoria", 420), ("yuta", 420), ("absolute-cinema", 520)):
-            duotone(os.path.join(src, f"{name}.gif"), os.path.join(OUT, f"{name}-burgundy.gif"), mw)
+        # source GIFs from tenor.com; pop-up headlights where the car has them
+        for name, size, box, step in (
+            ("popups-night", (840, 356), None, 1),
+            ("r34", (360, 270), None, 3),
+            ("supra", (360, 270), None, 1),
+            ("rx7-fc", (360, 270), (0, 58, 238, 238), 1),  # cut the meme caption
+            ("ae86", (500, 281), None, 3),
+        ):
+            duotone(os.path.join(src, f"{name}.gif"), os.path.join(OUT, f"{name}-burgundy.gif"), size, box, step)
