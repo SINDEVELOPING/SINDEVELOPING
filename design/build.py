@@ -112,7 +112,7 @@ def section(slug, label):
 # ---------- stack ----------
 STACK = [("javascript", "JavaScript", "MASADORA · TALORI · МАФИЯ"),
          ("typescript", "TypeScript", "VIPERR · DOTA CUP"),
-         ("python", "Python", "ОБХОД · SERVER COPY"),
+         ("python", "Python", "ОБХОД · COPYBOT"),
          ("openjdk", "Java", "MEZU"),
          ("react", "React", "MASADORA"),
          ("vite", "Vite", "MASADORA"),
@@ -186,8 +186,8 @@ PROJECTS = [
      ["Java", "Paper", "Fabric"]),
     ("mafia", "МАФИЯ", "Discord-бот для «Мафии» на двенадцать ролей с ночными действиями через кнопки.",
      ["JavaScript", "discord.js"]),
-    ("server-copy", "SERVER COPY", "Переносит структуру Discord-сервера: роли, категории и каналы "
-     "вместе с правами.", ["Python", "discord.py"]),
+    ("copybot", "COPYBOT", "Копирует Discord-серверы: роли, каналы, эмодзи и права. Сохранения "
+     "серверов и панель /start на кнопках.", ["Python", "discord.py"]),
 ]
 
 def card(n, slug, name, desc, tags):

@@ -18,14 +18,14 @@
 <a href="https://github.com/SINDEVELOPING/mylinux"><img src="assets/project-mylinux.svg" width="49%" alt="MyLinux — дистрибутив на базе Arch с KDE Plasma" /></a>
 <a href="https://github.com/SINDEVELOPING/mezu"><img src="assets/project-mezu.svg" width="49%" alt="Mezu — модули Minecraft-сервера" /></a>
 <a href="https://github.com/SINDEVELOPING/mafia-bot"><img src="assets/project-mafia.svg" width="49%" alt="Мафия — Discord-бот на двенадцать ролей" /></a>
-<a href="https://github.com/SINDEVELOPING/server-copy"><img src="assets/project-server-copy.svg" width="49%" alt="Server Copy — переносит структуру Discord-сервера" /></a>
+<a href="https://github.com/SINDEVELOPING/Copybot"><img src="assets/project-copybot.svg" width="49%" alt="Copybot — копирует Discord-серверы: роли, каналы, эмодзи и права" /></a>
 <a href="https://github.com/SINDEVELOPING?tab=repositories"><img src="assets/project-more.svg" width="49%" alt="Все репозитории" /></a>
 
 <br/><br/>
 
 <img src="assets/section-stack.svg" width="100%" alt="Стек" />
 
-<img src="assets/stack.svg" width="100%" alt="JavaScript — MASADORA, Talori, Мафия; TypeScript — VIPERR, Dota Cup; Python — Обход, Server Copy; Java — Mezu; React и Vite — MASADORA; Node.js — VIPERR; Express — MASADORA, Talori; Socket.IO — Talori; PostgreSQL — MASADORA; MySQL — Talori, VIPERR; Arch Linux — MyLinux" />
+<img src="assets/stack.svg" width="100%" alt="JavaScript — MASADORA, Talori, Мафия; TypeScript — VIPERR, Dota Cup; Python — Обход, Copybot; Java — Mezu; React и Vite — MASADORA; Node.js — VIPERR; Express — MASADORA, Talori; Socket.IO — Talori; PostgreSQL — MASADORA; MySQL — Talori, VIPERR; Arch Linux — MyLinux" />
 
 <img src="assets/r34-burgundy.gif" width="49%" alt="Nissan Skyline GT-R R34" />
 <img src="assets/supra-burgundy.gif" width="49%" alt="Toyota Supra" />
