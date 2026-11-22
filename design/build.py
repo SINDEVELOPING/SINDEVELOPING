@@ -93,48 +93,21 @@ def header():
     b += f'<rect y="{split}" width="{W}" height="{h - split}" fill="{NIGHT}"/></g>'
     # corner labels, like a palette swatch
     b += P(MONO.d("SINDEVELOPING", 13, 32, 44, ls=1.5), NIGHT)
-    b += P(MONO.d("#93032E", 13, W - 32, 44, ls=1.5, anchor="end"), NIGHT)
     size = 196
     base = split / 2 + DISPLAY.cap * size / 2
     b += P(DISPLAY.d("SIN", size, W / 2, base, ls=6, anchor="middle"), NIGHT)
     # bottom band
     b += P(DISPLAY.d("WEB DEVELOPER · DESIGNER", 40, W / 2, split + 72, ls=3, anchor="middle"), BURG)
     b += P(MONO.d("FIGMA  →  REACT  →  PRODUCTION", 13, W / 2, split + 112, ls=2, anchor="middle"), MUTED)
-    b += P(MONO.d("#151515", 13, W - 32, h - 28, ls=1.5, anchor="end"), "#3A3A3A")
     save("header.svg", svg(W, h, b, "SIN — web developer · designer"))
 
 # ---------- section title ----------
-def section(slug, label, num):
+def section(slug, label):
     h = 72
     b = f'<rect width="{W}" height="{h}" rx="14" fill="{BURG}"/>'
     size = 34
     b += P(DISPLAY.d(label, size, 32, h / 2 + DISPLAY.cap * size / 2, ls=2), NIGHT)
-    b += P(MONO.d(num, 14, W - 32, h / 2 + MONO.cap * 14 / 2, ls=1.5, anchor="end"), NIGHT)
     save(f"section-{slug}.svg", svg(W, h, b, label))
-
-# ---------- about ----------
-ABOUT = [
-    "Веб-разработчик и дизайнер. Делаю сайты от макета до продакшена: сначала проектирую интерфейс в Figma, "
-    "затем верстаю, пишу фронтенд на React и бэкенд под него. Люблю, когда страница не просто работает, "
-    "а выглядит приятно и быстро загружается.",
-    "Также умею делать Discord-ботов, работать в Linux и писать плагины для Minecraft — эти навыки "
-    "пригодились в собственных проектах.",
-]
-
-def about():
-    size, lh, pad, gap = 17, 29, 48, 18
-    maxw = W - pad * 2 - 8
-    paras = [BODY.wrap(p, size, maxw) for p in ABOUT]
-    h = pad * 2 + sum(len(p) for p in paras) * lh + gap * (len(paras) - 1) - (lh - size)
-    b = clip(W, h, 18) + f'<g clip-path="url(#c)"><rect width="{W}" height="{h}" fill="{NIGHT}"/>'
-    b += f'<rect width="8" height="{h}" fill="{BURG}"/></g>'
-    y = pad + size * 0.9
-    for i, lines in enumerate(paras):
-        for ln in lines:
-            b += P(BODY.d(ln, size, pad + 8, y), TEXT if i == 0 else MUTED)
-            y += lh
-        y += gap
-    save("about.svg", svg(W, round(h), b, " ".join(ABOUT)))
 
 # ---------- stack ----------
 STACK = [("javascript", "JavaScript", "MASADORA · TALORI · МАФИЯ"),
@@ -167,7 +140,6 @@ def stack():
     isz = 34
     for n, (slug, label, used) in enumerate(STACK):
         cx, cy = (n % cols) * cw, (n // cols) * ch
-        b += P(MONO.d(f"{n + 1:02}", 11, cx + 16, cy + 26, ls=1), TINT)
         k = isz / 24
         b += (f'<path fill="{TEXT}" transform="translate({cx + cw / 2 - isz / 2:.1f} {cy + 30}) scale({k:.4f})" '
               f'd="{icon_path(slug)}"/>')
@@ -225,12 +197,11 @@ def card(n, slug, name, desc, tags):
     size = 30
     b += P(DISPLAY.d(name, size, pad, band / 2 + DISPLAY.cap * size / 2, ls=1.5), NIGHT)
     if slug == "viperr":  # private repo: no arrow, a label instead
-        b += P(MONO.d(f"{n:02}  ·  PRIVATE", 11, w - pad, band / 2 + MONO.cap * 11 / 2, ls=1, anchor="end"), NIGHT)
+        b += P(MONO.d("PRIVATE", 11, w - pad, band / 2 + MONO.cap * 11 / 2, ls=1, anchor="end"), NIGHT)
     else:
         ax, ay = w - pad - 16, band / 2 - 8
         b += (f'<path d="M{ax} {ay + 16}L{ax + 16} {ay}M{ax + 4} {ay}H{ax + 16}V{ay + 12}" stroke="{NIGHT}" '
               f'stroke-width="2.6" fill="none" stroke-linecap="square"/>')
-        b += P(MONO.d(f"{n:02}", 11, w - pad - 28, band / 2 + MONO.cap * 11 / 2, ls=1, anchor="end"), NIGHT)
     fs, lh = 14.5, 22
     y = band + 34
     for ln in BODY.wrap(desc, fs, w - pad * 2)[:4]:
@@ -254,20 +225,6 @@ def more_card():
     b += (f'<path d="M{ax} {ay + s}L{ax + s} {ay}M{ax + 8} {ay}H{ax + s}V{ay + 22}" stroke="{NIGHT}" '
           f'stroke-width="3.2" fill="none" stroke-linecap="square"/>')
     save("project-more.svg", svg(w, h, b, "Все репозитории"))
-
-# ---------- footer ----------
-def footer():
-    h = 64
-    b = f'<rect width="{W}" height="{h}" rx="14" fill="{NIGHT}"/>'
-    b += P(MONO.d("SINDEVELOPING", 13, 28, h / 2 + MONO.cap * 13 / 2, ls=2), TINT)
-    x = W - 28
-    for col, lab in ((NIGHT, "#151515"), (BURG, "#93032E")):
-        tw = MONO.width(lab, 12, 1)
-        b += P(MONO.d(lab, 12, x, h / 2 + MONO.cap * 12 / 2, ls=1, anchor="end"), MUTED)
-        x -= tw + 12
-        b += f'<rect x="{x - 18}" y="{h / 2 - 9}" width="18" height="18" rx="4" fill="{col}" stroke="#3A3A3A"/>'
-        x -= 18 + 26
-    save("footer.svg", svg(W, h, b, "SINDEVELOPING"))
 
 # ---------- duotone gifs ----------
 def hex2rgb(h):
@@ -324,8 +281,8 @@ def duotone(src, dst, size, box=None, step=1):
 
 if __name__ == "__main__":
     header(); stack(); featured(); more_card()
-    section("projects", "ПРОЕКТЫ", "01 / 02")
-    section("stack", "СТЕК", "02 / 02")
+    section("projects", "ПРОЕКТЫ")
+    section("stack", "СТЕК")
     for i, p in enumerate(PROJECTS, 1):
         card(i, *p)
     if "--gifs" in sys.argv:
@@ -333,9 +290,7 @@ if __name__ == "__main__":
         # source GIFs from tenor.com; pop-up headlights where the car has them
         for name, size, box, step in (
             ("popups-night", (840, 356), None, 1),
-            ("r34", (360, 270), None, 3),
-            ("supra", (360, 270), None, 1),
-            ("rx7-fc", (360, 270), (0, 58, 238, 238), 1),  # cut the meme caption
-            ("ae86", (500, 281), None, 3),
+            ("r34", (410, 231), None, 3),
+            ("supra", (410, 231), None, 1),
         ):
             duotone(os.path.join(src, f"{name}.gif"), os.path.join(OUT, f"{name}-burgundy.gif"), size, box, step)
