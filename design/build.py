@@ -137,17 +137,25 @@ def about():
     save("about.svg", svg(W, round(h), b, " ".join(ABOUT)))
 
 # ---------- stack ----------
-STACK = [("html5", "HTML"), ("css", "CSS"), ("javascript", "JavaScript"), ("typescript", "TypeScript"),
-         ("react", "React"), ("vite", "Vite"), ("figma", "Figma"), ("nodedotjs", "Node.js"),
-         ("express", "Express"), ("python", "Python"), ("openjdk", "Java"), ("mysql", "MySQL"),
-         ("postgresql", "PostgreSQL"), ("mongodb", "MongoDB"), ("linux", "Linux"), ("git", "Git")]
+STACK = [("javascript", "JavaScript", "MASADORA · TALORI · МАФИЯ"),
+         ("typescript", "TypeScript", "VIPERR · DOTA CUP"),
+         ("python", "Python", "ОБХОД · SERVER COPY"),
+         ("openjdk", "Java", "MEZU"),
+         ("react", "React", "MASADORA"),
+         ("vite", "Vite", "MASADORA"),
+         ("nodedotjs", "Node.js", "VIPERR"),
+         ("express", "Express", "MASADORA · TALORI"),
+         ("socketdotio", "Socket.IO", "TALORI"),
+         ("postgresql", "PostgreSQL", "MASADORA"),
+         ("mysql", "MySQL", "TALORI · VIPERR"),
+         ("archlinux", "Arch Linux", "MYLINUX")]
 
 def icon_path(slug):
     raw = open(os.path.join(HERE, "icons", f"{slug}.svg"), encoding="utf-8").read()
     return re.search(r'<path d="([^"]+)"', raw).group(1)
 
 def stack():
-    cols, cw, ch = 4, W / 4, 128
+    cols, cw, ch = 4, W / 4, 140
     rows = len(STACK) // cols
     h = rows * ch
     b = clip(W, h, 18) + f'<g clip-path="url(#c)"><rect width="{W}" height="{h}" fill="{NIGHT}"/>'
@@ -157,23 +165,51 @@ def stack():
         b += f'<rect y="{j * ch - 0.5}" width="{W}" height="1" fill="{LINE}"/>'
     b += "</g>"
     isz = 34
-    for n, (slug, label) in enumerate(STACK):
+    for n, (slug, label, used) in enumerate(STACK):
         cx, cy = (n % cols) * cw, (n // cols) * ch
         b += P(MONO.d(f"{n + 1:02}", 11, cx + 16, cy + 26, ls=1), TINT)
         k = isz / 24
-        b += (f'<path fill="{TEXT}" transform="translate({cx + cw / 2 - isz / 2:.1f} {cy + 34}) scale({k:.4f})" '
+        b += (f'<path fill="{TEXT}" transform="translate({cx + cw / 2 - isz / 2:.1f} {cy + 30}) scale({k:.4f})" '
               f'd="{icon_path(slug)}"/>')
-        b += P(BODY_MED.d(label, 14, cx + cw / 2, cy + 102, anchor="middle"), MUTED)
-    save("stack.svg", svg(W, h, b, "Стек: " + ", ".join(l for _, l in STACK)))
+        b += P(BODY_MED.d(label, 15, cx + cw / 2, cy + 94, anchor="middle"), TEXT)
+        b += P(MONO.d(used, 10, cx + cw / 2, cy + 116, ls=0.6, anchor="middle"), MUTED)
+    save("stack.svg", svg(W, h, b, "Стек: " + "; ".join(f"{l} — {u}" for _, l, u in STACK)))
+
+# ---------- featured project ----------
+def featured():
+    h, pad = 300, 44
+    b = clip(W, h, 20) + f'<g clip-path="url(#c)"><rect width="{W}" height="{h}" fill="{NIGHT}"/>'
+    b += f'<rect x="{W - 12}" width="12" height="{h}" fill="{BURG}"/></g>'
+    b += P(MONO.d("СЕЙЧАС В РАБОТЕ  ·  WINDOWS 10/11", 12, pad, pad + 10, ls=2), TINT)
+    size = 104
+    b += P(DISPLAY.d("ОБХОД", size, pad - 4, pad + 34 + DISPLAY.cap * size, ls=3), BURG)
+    y = pad + 34 + DISPLAY.cap * size + 44
+    for ln in BODY.wrap("Discord, YouTube и Telegram без блокировок одной кнопкой, плюс свой VPN-клиент.",
+                        17, W - pad * 2 - 280):
+        b += P(BODY.d(ln, 17, pad, y), TEXT)
+        y += 27
+    # download button
+    bw, bh = 236, 56
+    bx, by = W - pad - 12 - bw, h - pad - bh
+    b += f'<rect x="{bx}" y="{by}" width="{bw}" height="{bh}" rx="12" fill="{BURG}"/>'
+    b += P(DISPLAY.d("СКАЧАТЬ РЕЛИЗ", 22, bx + 24, by + bh / 2 + DISPLAY.cap * 11, ls=1.5), NIGHT)
+    ax, ay = bx + bw - 24 - 14, by + bh / 2 - 7
+    b += (f'<path d="M{ax} {ay + 14}L{ax + 14} {ay}M{ax + 3} {ay}H{ax + 14}V{ay + 11}" stroke="{NIGHT}" '
+          f'stroke-width="2.6" fill="none" stroke-linecap="square"/>')
+    b += P(MONO.d("PYTHON  ·  CUSTOMTKINTER  ·  ZAPRET  ·  WINDIVERT", 11, pad, h - pad + 2, ls=1), MUTED)
+    save("featured-obhod.svg", svg(W, h, b, "Обход — Discord, YouTube и Telegram без блокировок одной кнопкой, "
+                                            "плюс свой VPN-клиент. Windows 10/11. Скачать последний релиз"))
 
 # ---------- project cards ----------
 PROJECTS = [
-    ("obhod", "ОБХОД", "Discord, YouTube и Telegram без блокировок одной кнопкой: подбор режима под провайдера, "
-     "встроенный прокси для Telegram, работа в фоне.", ["Python", "CustomTkinter", "zapret", "WinDivert"]),
     ("masadora", "MASADORA", "Турнирная платформа: сайт с сеткой, матчами и командами, API и Discord-бот. "
      "VALORANT, CS2 и Dota 2.", ["React", "Vite", "Express", "PostgreSQL"]),
-    ("mylinux", "MYLINUX", "Свой дистрибутив на базе Arch: live-образ, системные настройки, "
-     "собственная тема Plasma.", ["archiso", "Bash", "PowerShell"]),
+    ("talori", "TALORI", "Сайт Discord-сервера: профили, кланы, ивенты, а ещё мафия и покер прямо в браузере.",
+     ["Express", "MySQL", "Socket.IO"]),
+    ("viperr", "VIPERR", "Сайт Discord-сервера с мини-играми: слоты, рулетка, кости и покер. Репозиторий закрыт.",
+     ["Node.js", "TypeScript", "MySQL"]),
+    ("mylinux", "MYLINUX", "Свой дистрибутив на базе Arch с KDE Plasma: live-образ, системные настройки "
+     "и собственная тема.", ["archiso", "Bash", "PowerShell"]),
     ("mezu", "MEZU", "Модули Minecraft-сервера: локальный чат, спавн, банк на алмазах и клиентский мод.",
      ["Java", "Paper", "Fabric"]),
     ("mafia", "МАФИЯ", "Discord-бот для «Мафии» на двенадцать ролей с ночными действиями через кнопки.",
@@ -188,11 +224,13 @@ def card(n, slug, name, desc, tags):
     b += f'<rect width="{w}" height="{band}" fill="{BURG}"/></g>'
     size = 30
     b += P(DISPLAY.d(name, size, pad, band / 2 + DISPLAY.cap * size / 2, ls=1.5), NIGHT)
-    # arrow ↗
-    ax, ay = w - pad - 16, band / 2 - 8
-    b += (f'<path d="M{ax} {ay + 16}L{ax + 16} {ay}M{ax + 4} {ay}H{ax + 16}V{ay + 12}" stroke="{NIGHT}" '
-          f'stroke-width="2.6" fill="none" stroke-linecap="square"/>')
-    b += P(MONO.d(f"{n:02}", 11, w - pad - 28, band / 2 + MONO.cap * 11 / 2, ls=1, anchor="end"), NIGHT)
+    if slug == "viperr":  # private repo: no arrow, a label instead
+        b += P(MONO.d(f"{n:02}  ·  PRIVATE", 11, w - pad, band / 2 + MONO.cap * 11 / 2, ls=1, anchor="end"), NIGHT)
+    else:
+        ax, ay = w - pad - 16, band / 2 - 8
+        b += (f'<path d="M{ax} {ay + 16}L{ax + 16} {ay}M{ax + 4} {ay}H{ax + 16}V{ay + 12}" stroke="{NIGHT}" '
+              f'stroke-width="2.6" fill="none" stroke-linecap="square"/>')
+        b += P(MONO.d(f"{n:02}", 11, w - pad - 28, band / 2 + MONO.cap * 11 / 2, ls=1, anchor="end"), NIGHT)
     fs, lh = 14.5, 22
     y = band + 34
     for ln in BODY.wrap(desc, fs, w - pad * 2)[:4]:
@@ -205,6 +243,17 @@ def card(n, slug, name, desc, tags):
         b += P(MONO.d(t, ts, x + 10, ty - 3), TINT)
         x += tw + 8
     save(f"project-{slug}.svg", svg(w, h, b, f"{name}: {desc}"))
+
+def more_card():
+    w, h, pad = 410, 250, 26
+    b = f'<rect width="{w}" height="{h}" rx="16" fill="{BURG}"/>'
+    b += P(MONO.d("GITHUB.COM/SINDEVELOPING", 11, pad, pad + 14, ls=1.5), NIGHT)
+    for i, ln in enumerate(("ВСЕ", "РЕПОЗИТОРИИ")):
+        b += P(DISPLAY.d(ln, 44, pad, h - pad - 16 - (1 - i) * 52, ls=2), NIGHT)
+    ax, ay, s = w - pad - 30, pad, 30
+    b += (f'<path d="M{ax} {ay + s}L{ax + s} {ay}M{ax + 8} {ay}H{ax + s}V{ay + 22}" stroke="{NIGHT}" '
+          f'stroke-width="3.2" fill="none" stroke-linecap="square"/>')
+    save("project-more.svg", svg(w, h, b, "Все репозитории"))
 
 # ---------- footer ----------
 def footer():
@@ -262,10 +311,10 @@ def duotone(src, dst, maxw):
     print(f"  {os.path.basename(dst)}: {len(frames)} frames, {os.path.getsize(dst) // 1024} KB")
 
 if __name__ == "__main__":
-    header(); about(); stack(); footer()
+    header(); about(); stack(); footer(); featured(); more_card()
     section("about", "ОБО МНЕ", "01 / 03")
-    section("stack", "СТЕК", "02 / 03")
-    section("projects", "ПРОЕКТЫ", "03 / 03")
+    section("projects", "ПРОЕКТЫ", "02 / 03")
+    section("stack", "СТЕК", "03 / 03")
     for i, p in enumerate(PROJECTS, 1):
         card(i, *p)
     if "--gifs" in sys.argv:
